@@ -65,6 +65,12 @@ function blob_fixup() {
         odm/etc/vintf/manifest/manifest_oplus_fingerprint.xml)
             sed -ni "/android.hardware.biometrics.fingerprint/{x;s/hal format/hal override=\"true\" format/;x};x;1!p;\${x;p}" "${2}"
             ;;
+        odm/lib64/mediadrm/libwvdrmengine.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        odm/lib64/libwvhidl.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
         product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml)
             sed -i "s/\/my_product/\/product/" "${2}"
             ;;
@@ -84,6 +90,36 @@ function blob_fixup() {
             ;;
         vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so)
             "${SIGSCAN}" -p "1F 0A 00 94" -P "1F 20 03 D5" -f "${2}"
+            ;;
+        vendor/bin/sensors.qti)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        vendor/lib64/libril-qc-hal-qmi.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        vendor/lib64/libsnsdiaglog.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        vendor/lib64/libssc.so:)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        vendor/lib64/libsnsapi.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        vendor/lib64/libcamxncs.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        vendor/lib64/libsnsapi.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        vendor/lib64/sensors.ssc.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
+            ;;
+        vendor/lib64/libwebrtc_audio_preprocessing.so)
+            "${PATCHELF}" --replace-needed "libprotobuf-cpp-lite-3.9.1.so" "libprotobuf-cpp-full-3.9.1.so" "${2}"
             ;;
     esac
 }

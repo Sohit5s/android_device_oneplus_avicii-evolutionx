@@ -84,6 +84,7 @@ vendor/lib/libaudioparsers.so
 vendor/lib/libhdmipassthru.so
 vendor/lib/libqtigef.so
 vendor/lib64/libadsprpc.so
+vendor/lib64/libwebrtc_audio_preprocessing.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
