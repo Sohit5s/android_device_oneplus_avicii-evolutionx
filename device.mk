@@ -318,11 +318,17 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, hardware/oplus/overlay/qssi/qssi.mk)
 
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-aosp
+    $(LOCAL_PATH)/overlay-evolution
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
+    EvolutionFrameworksResCommon \
+    EvolutionSettingsProviderResCommon \
+    EvolutionSettingsResCommon \
+    EvolutionSystemUIResCommon \
+    EvolutionSettingsResTarget \
+    EvolutionSystemUIResTarget \
     FrameworksResTarget \
     OPlusFrameworksResCommon \
     OPlusFrameworksResTarget \
