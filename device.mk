@@ -105,6 +105,8 @@ TARGET_SCREEN_WIDTH := 1080
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor \
+    android.hardware.bluetooth.a2dp@1.0-impl \
+    android.hardware.bluetooth.a2dp@1.0-service \
     libbthost_if \
     libbthost_if.vendor \
     libldacBT_bco.vendor \
