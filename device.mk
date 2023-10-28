@@ -55,6 +55,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     liba2dpoffload \
     libbatterylistener \
+    libbthost_if_sink \
     libcomprcapture \
     libexthwplugin \
     libhdmiedid \
